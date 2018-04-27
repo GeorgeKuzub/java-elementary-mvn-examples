@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class CalcTest {
+public class TestCalcs {
     private static Calculator calc;
 
 
@@ -17,7 +17,7 @@ public class CalcTest {
     }
 
     @Test
-    public void testAdd() {
+    public void addTest() {
         int actualResult =
                 calc.add(5, 10);
 
@@ -25,7 +25,7 @@ public class CalcTest {
     }
 
     @Test
-    public void testPower() {
+    public void powerTest() {
         int actualResult =
                 calc.pow(3);
 
@@ -33,7 +33,7 @@ public class CalcTest {
     }
 
     @Test
-    public void testDivNormal() {
+    public void divNormalTest() {
         int actualResult =
                 calc.div(100, 20);
 
@@ -42,13 +42,13 @@ public class CalcTest {
 
 
     @Test
-    public void testDivWhenFirstOperandZero() {
+    public void divWhenFirstOperandZeroTest() {
         int actualResult = calc.div(0, 10);
         assertEquals(0, actualResult);
     }
 
     @Test(expected = MyCustomException.class)
-    public void testDivByZero() {
+    public void divByZeroTest() {
 
         calc.div(100, 0);
 

@@ -27,13 +27,6 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>8.5.16</version>
-        </dependency>
-
-
     </dependencies>
     <build>
         <plugins>

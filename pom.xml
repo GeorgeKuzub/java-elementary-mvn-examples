@@ -7,6 +7,9 @@
     <groupId>com.hillel</groupId>
     <artifactId>java-elementary-mvn-examples</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <!-- There are other variants: war, ear, par, ...-->
+    <!-- jar is a default type and it's not obligatory to set to jar-->
     <packaging>jar</packaging>
 
 

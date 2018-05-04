@@ -1,4 +1,4 @@
-package com.hillel;
+package com.hillel.com.hillel.junitbasic;
 
 public class Calculator {
     int add(int x, int y) {

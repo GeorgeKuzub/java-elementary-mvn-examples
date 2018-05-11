@@ -1,4 +1,4 @@
-package com.hillel.stream;
+package com.hillel.stream_intro;
 
 import java.util.Random;
 

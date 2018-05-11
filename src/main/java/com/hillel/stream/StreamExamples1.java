@@ -258,9 +258,7 @@ public class StreamExamples1 {
         Person person3 = new Person("Vitaliy", "Tsukerman", 18);
 
         Stream myStream = Stream.of(person1, person2, person3)
-                .filter(p -> {
-                    return p.getSurname().equals("Doe") && p.getName().equals("Maria");
-                })
+                .filter(p -> p.getSurname().equals("Doe") && p.getName().equals("Maria"))
                 .map(p -> {
                     System.out.println("map: " + p.getName());
                     return p.getName();

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -88,6 +89,8 @@ public class StreamExamples1 {
 
         // Direct creating stream of doubles:
         Stream<Double> doubleStream = Stream.<Double>of(0.1, 0.2, 0.3);
+        // It also may be replaced to special type: DoubleStream
+        DoubleStream doubleStream2 = DoubleStream.of(0.1, 0.2, 0.3);
 
         // Getting one from any collection
         Collection collectionStrings =

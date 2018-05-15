@@ -2,12 +2,10 @@ package com.hillel.stream;
 
 import com.hillel.stream_intro.User;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -15,72 +13,197 @@ import java.util.stream.Stream;
 public class StreamExamples1 {
 
     public static void main(String[] args) {
-        // Different ways of getting streams
-        initStreams();
+//        // Different ways of getting streams
+//        initStreams();
+//
+//        // Returns true if every elements satisfied to a condition
+//        allMatchExample();
+//
+//        // Returns true if at least one element of a stream satisfied to a condition
+//        anyMatchExample();
+//
+//        // Returns false if at least one element of a stream satisfied to a condition
+//        noneMatchExample();
+//
+//        // Concatenation of multiple streams
+//        concatExample();
+//
+//        // Returns length of elements of a stream
+//        countExample();
+//
+//        // Returns a stream of an unique elements
+//        distinctExample();
+//
+//        // Getting all strings that don't start with "h"
+//        filterExample();
+//
+//        // Getting any element from a stream if this one is exist
+//        findAnyExample();
+//
+//        /* Converting any nested collections(and any other type of containers)
+//           to one flat stream */
+//        flatMapExample();
+//
+//        // Performing some operation on each of element in order way
+//        forEachOrderedExample();
+//
+//        /* Generating infinitive elements.
+//           It should be limited to get final number of elements */
+//        generateExample();
+//
+//        /* Generating infinitive elements with some step.
+//          It should be limited to get final number of elements. */
+//        iterateExample();
+//
+//        // Limiting a stream by number of elements
+//        limitExample();
+//
+//
+//        // Converting type of elements to another type and return a new stream
+//        mapExample();
+//
+//
+//        // Getting max element in the stream
+//        maxExample();
+//
+//
+//        // Getting min element in the stream
+//        minExample();
+//
+//        /* Peek - nothing to do special on elements in a stream,
+//         * but you may specify some operation on each element of the stream */
+//        peekExample();
+//
+//        /* Getting of IntStream only for Integer element
+//        * IntStream is a special stream that may contain only element of Integer type*/
+//        intStreamExample();
 
-        // Returns true if every elements satisfied to a condition
-        allMatchExample();
+        // Skipping elements
+//        skipElements();
+//
+//        // Sorting elements
+//        sortingElements();
 
-        // Returns true if at least one element of a stream satisfied to a condition
-        anyMatchExample();
+        //Converting stream to an array of objects
+//        streamToArray();
 
-        // Returns false if at least one element of a stream satisfied to a condition
-        noneMatchExample();
+//        // Converting between different type of streams
+//        convertDifferentTypeStream();
+//
+//        // Getting average value for a stream of elements
+//        getAverage();
 
-        // Concatenation of multiple streams
-        concatExample();
+        // Demonstration of iterate method of Stream class
+//        iterateEach2ndElement();
 
-        // Returns length of elements of a stream
-        countExample();
+        // Getting Summary statistics
+//        summaryStatistics();
 
-        // Returns a stream of an unique elements
-        distinctExample();
+        // Reducing for string type
+//        stringReduce();
 
-        // Getting all strings that don't start with "h"
-        filterExample();
-
-        // Getting any element from a stream if this one is exist
-        findAnyExample();
-
-        /* Converting any nested collections(and any other type of containers)
-           to one flat stream */
-        flatMapExample();
-
-        // Performing some operation on each of element in order way
-        forEachOrderedExample();
-
-        /* Generating infinitive elements.
-           It should be limited to get final number of elements */
-        generateExample();
-
-        /* Generating infinitive elements with some step.
-          It should be limited to get final number of elements. */
-        iterateExample();
-
-        // Limiting a stream by number of elements
-        limitExample();
-
-
-        // Converting type of elements to another type and return a new stream
-        mapExample();
-
-
-        // Getting max element in the stream
-        maxExample();
-
-
-        // Getting min element in the stream
-        minExample();
-
-        /* Peek - nothing to do special on elements in a stream,
-         * but you may specify some operation on each element of the stream */
-        peekExample();
-
-        /* Getting of IntStream only for Integer element
-        * IntStream is a special stream that may contain only element of Integer type*/
-        intStreamExample();
-
+        // Converting Person's stream to Person's map
+//        convertStreamToMap();
     }
+
+
+    public static void convertStreamToMap() {
+        Stream<Person> peopleStream = Stream.of(
+                new Person("Name1", "Famaly1", 10),
+                new Person("Name2", "Famaly2", 11),
+                new Person("Name3", "Famaly3", 12));
+
+        peopleStream.count();
+
+        List<Person> listperson =
+                peopleStream.collect(Collectors.toList());
+
+
+        Map<String, Integer> people = peopleStream
+                .collect(Collectors
+                        .toMap(p -> p.getSurname(), t -> t.getAge()));
+
+        people.forEach((k, v) -> System.out.println(k + " " + v));
+    }
+
+    public static void stringReduce() {
+        Stream<String> helloAll = Stream.of("Hello", " World", " from", " me!");
+        Optional<String> sentence = helloAll.reduce((x, y) -> x + " " + y);
+        System.out.println(sentence.get());
+    }
+
+    public static void intReduce() {
+        IntStream numbersStream = IntStream.of(10, 20, 30, 40, 50, 60);
+        OptionalInt result = numbersStream.reduce((l, r) -> l + r);
+        System.out.println(result.getAsInt());
+    }
+
+
+    public static void summaryStatistics() {
+        IntSummaryStatistics statistics = IntStream.range(0, 100).summaryStatistics();
+        double average = statistics.getAverage();
+        System.out.println(average);
+    }
+
+    public static void iterateEach2ndElement() {
+
+        Person person1 = new Person("John", "Doe", 35);
+        Person person2 = new Person("Maria", "Doe", 24);
+        Person person3 = new Person("Eugene", "Pavlenskiy", 28);
+        Person person4 = new Person("George", "Kour", 120);
+
+        List<Person> people = Arrays
+                .asList(person1, person2, person3, person4);
+
+        // Iterate by each 2nd person in a stream
+        IntStream
+                .iterate(0, x -> x + 2)
+                .limit(people.size() / 2)
+                .forEach(i -> {
+                    System.out.println(people.get(i).getName());
+                });
+
+        // Iterate absolutely by each person in a stream
+//        IntStream
+//                .range(0, people.size())
+//                .forEach(i -> {
+//                    System.out.println(people.get(i).getName());
+//                });
+    }
+
+
+    public static void getAverage() {
+        IntStream
+                .range(0, 10)
+                .average()
+                .ifPresent(System.out::println);
+    }
+
+    public static void convertDifferentTypeStream() {
+        Stream<Long> longStream = IntStream.range(0, 10).asLongStream().boxed();
+    }
+
+    public static void streamToArray() {
+        List<String> list = Arrays.asList("John", "Maria", "Eugene", "Elena");
+        Object[] arrNames = list.stream().toArray();
+
+        String[] strings = list.stream().toArray(String[]::new);
+        System.out.println(String.join(",", strings));
+    }
+
+    public static void sortingElements() {
+        Arrays.asList("John", "Maria", "Eugene", "Elena").stream()
+                .sorted(String::compareTo)
+                .forEach(System.out::println);
+    }
+
+    public static void skipElements() {
+        Arrays.asList("John", "Maria", "Eugene", "Elena").stream()
+                .skip(1)
+                .limit(2)
+                .forEach(System.out::println);
+    }
+
 
     /**
      * Different ways of getting streams
@@ -110,6 +233,8 @@ public class StreamExamples1 {
 
 
         //Building stream using special methods: add() and build()
+
+
         Stream<User> users =
                 Stream.<User>builder()
                         .add(new User("User1"))

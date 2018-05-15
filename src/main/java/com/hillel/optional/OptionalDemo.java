@@ -1,6 +1,7 @@
 package com.hillel.optional;
 
 import java.util.Optional;
+import java.util.Random;
 
 
 public class OptionalDemo {
@@ -13,7 +14,7 @@ public class OptionalDemo {
         saveGettingValue2();
         saveGettingValue3();
         saveGettingValue4();
-
+        compareOptionalToSomeValue();
 
         try {
             saveGettingValue5();
@@ -22,6 +23,13 @@ public class OptionalDemo {
         }
     }
 
+
+    public static void compareOptionalToSomeValue() {
+        Optional<Integer> result = Optional.of(new Random().nextInt(10));
+        // check whether some concrete value is represented inside an optional container
+        boolean represented = result.filter(i -> i == 5).isPresent(); // check whether result contains 5 or not
+        System.out.println("Is the value equals to 5? Answer: " + represented);
+    }
 
     // ofNullable demonstration
     public static void saveGettingValue1() {

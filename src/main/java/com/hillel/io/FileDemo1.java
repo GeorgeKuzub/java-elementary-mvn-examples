@@ -21,21 +21,21 @@ public class FileDemo1 {
         System.out.println("Get all files specified by some path:");
         getFilesByPath(".").stream().forEach(System.out::println);
 
-        String pathToResourceFile =
-                ClassLoader.getSystemResource("Test.txt").getFile();
-
+//        String pathToResourceFile =
+//                ClassLoader.getSystemResource("Test.txt").getFile();
+        String pathToResourceFile = "/home/geo/IdeaProjects/java-elementary-mvn-examples/src/main/resources/Test.txt";
         System.out.println("\nRead from text files -- old style --");
         List<String> lines = readTextFileOld(pathToResourceFile);
-        lines.stream().forEach(System.out::println);
+        lines.forEach(System.out::println);
 
         System.out.println("\nRead from text files -- new style --");
         lines = readTextFileNew(pathToResourceFile);
-        lines.stream().forEach(System.out::println);
+        lines.forEach(System.out::println);
 
         System.out.println("\nRead from text files -- progressive way --");
         readTextFileProgressive(pathToResourceFile);
         lines = readTextFileProgressive(pathToResourceFile);
-        lines.stream().forEach(System.out::println);
+        lines.forEach(System.out::println);
     }
 
 
@@ -116,8 +116,8 @@ public class FileDemo1 {
 
 //        Java8 style and higher
         return Arrays.stream(files)
-                .filter(f -> f.isDirectory())
-                .map(f -> f.getName())
+                .filter(File::isDirectory)
+                .map(File::getName)
                 .collect(Collectors.toList());
     }
 }

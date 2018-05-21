@@ -1,4 +1,4 @@
-package com.hillel.com.hillel.java8;
+package com.hillel.java8;
 
 public class Main {
     public static void main(String[] args) {

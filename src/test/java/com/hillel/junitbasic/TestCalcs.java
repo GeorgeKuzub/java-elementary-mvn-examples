@@ -1,4 +1,4 @@
-package com.hillel.com.hillel.junitbasic;
+package com.hillel.junitbasic;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.hillel.com.hillel.junitbasic;
+package com.hillel.junitbasic;
 
 class MyCustomException extends RuntimeException {
     MyCustomException(String message) {

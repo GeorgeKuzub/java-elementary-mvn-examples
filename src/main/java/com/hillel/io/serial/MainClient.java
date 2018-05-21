@@ -1,7 +1,7 @@
-package com.hillel.serial;
+package com.hillel.io.serial;
 
-import com.hillel.serial.entities.Auth;
-import com.hillel.serial.entities.User;
+import com.hillel.io.serial.entities.Auth;
+import com.hillel.io.serial.entities.User;
 
 public class MainClient {
     public static void main(String[] args) {

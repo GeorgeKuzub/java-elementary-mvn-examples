@@ -1,4 +1,4 @@
-package com.hillel.serial.entities;
+package com.hillel.io.serial.entities;
 
 import java.io.Serializable;
 

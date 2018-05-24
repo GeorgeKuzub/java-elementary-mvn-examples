@@ -28,6 +28,6 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        System.out.println("My main program packed into jar, started and finished here.");
+        System.out.println("My main2 program packed into jar, started and finished here.");
     }
 }

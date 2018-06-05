@@ -63,7 +63,7 @@ public class StreamExamples1 {
 //        mapExample();
 //
 //
-//        // Getting max element in the stream
+//        // Getting maxT element in the stream
 //        maxExample();
 //
 //
@@ -398,7 +398,7 @@ public class StreamExamples1 {
     }
 
     /**
-     * Getting max element in the stream
+     * Getting maxT element in the stream
      */
     public static void maxExample() {
         Stream.of(1, 43, 33, 12, 9)

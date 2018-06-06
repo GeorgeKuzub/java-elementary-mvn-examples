@@ -1,0 +1,12 @@
+package db.dao;
+
+/**
+ * CREATE TABLE product (id integer PRIMARY KEY, name varchar(20), category varchar(20), price integer);
+ *
+
+ * INSERT INTO product VALUES
+ * (1, 'Elephant', 'African animal', 1000000),
+ * (2, 'Ostrich', 'Australian bird', 20000),
+ * (3, 'Lion', 'African animal', 500000),
+ * (4, 'Hipo', 'African animal', 850000);
+ */

@@ -135,4 +135,10 @@ public class ProductDbDao implements Dao<Product> {
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        connection.close();
+        super.finalize();
+    }
 }

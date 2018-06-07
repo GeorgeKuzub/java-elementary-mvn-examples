@@ -1,6 +1,6 @@
-package com.hillel.db.dao.interfaces;
+package com.hillel.dao.interfaces;
 
-import com.hillel.db.dao.domains.Product;
+import com.hillel.dao.domains.Product;
 
 import java.util.List;
 import java.util.Optional;

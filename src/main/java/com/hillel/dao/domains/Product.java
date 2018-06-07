@@ -1,4 +1,4 @@
-package com.hillel.db.dao.domains;
+package com.hillel.dao.domains;
 
 public class Product {
     private int id;

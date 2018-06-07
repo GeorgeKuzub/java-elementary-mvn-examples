@@ -1,9 +1,9 @@
-package com.hillel.db.dao;
+package com.hillel.dao;
 
 
-import com.hillel.db.dao.dblogic.ProductDbDao;
-import com.hillel.db.dao.domains.Product;
-import com.hillel.db.dao.interfaces.Dao;
+import com.hillel.dao.dblogic.ProductDbDao;
+import com.hillel.dao.domains.Product;
+import com.hillel.dao.interfaces.Dao;
 
 import java.util.Optional;
 

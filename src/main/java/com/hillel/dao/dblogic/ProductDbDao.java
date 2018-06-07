@@ -1,8 +1,8 @@
-package com.hillel.db.dao.dblogic;
+package com.hillel.dao.dblogic;
 
 
-import com.hillel.db.dao.domains.Product;
-import com.hillel.db.dao.interfaces.Dao;
+import com.hillel.dao.domains.Product;
+import com.hillel.dao.interfaces.Dao;
 
 import java.sql.*;
 import java.util.ArrayList;

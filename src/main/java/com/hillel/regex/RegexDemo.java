@@ -14,7 +14,7 @@ public class RegexDemo {
 
 //        splittingString();
 
-//        phoneNumberCheck();
+        phoneNumberCheck();
 
     }
 
@@ -49,8 +49,10 @@ public class RegexDemo {
         String input = "Hello Java! Hello JavaScript! JavaSE 8.";
         Pattern pattern = Pattern.compile("Java(\\w*)");
         Matcher matcher = pattern.matcher(input);
-        while (matcher.find())
+        while (matcher.find()) {
             System.out.println(matcher.group());
+        }
+
     }
 
 
@@ -65,7 +67,7 @@ public class RegexDemo {
     private static void splittingString() {
         String input = "Hello Java! Hello JavaScript! JavaSE 8. True?";
 
-        Pattern pattern = Pattern.compile("[ ,.!?_]");
+        Pattern pattern = Pattern.compile("[ ,.!?_]+");
 //        Pattern pattern = Pattern.compile("\\s*(\\s|,|!|\\.)\\s*");
 
         String[] words = pattern.split(input);
@@ -84,9 +86,11 @@ public class RegexDemo {
         if ((s.matches(pattern))) {
             System.out.println("It's a phone number");
         }
-        s = "123 3323";
+        s = "123  3323";
         if ((s.matches(pattern))) {
             System.out.println("It's a phone number as well.");
+        } else {
+            System.out.println("It's not a phone number");
         }
     }
 

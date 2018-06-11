@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -15,7 +14,7 @@ public class NetClient {
         BufferedReader br = null;
         try {
             // установка соединения с сервером
-            socket = new Socket(InetAddress.getLocalHost(), 8071);
+            socket = new Socket("localhost", 8071);
             // или Socket socket = new Socket("ИМЯ_СЕРВЕРА", 8071);
             PrintStream ps = new PrintStream(socket.getOutputStream());
 

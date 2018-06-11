@@ -9,7 +9,7 @@ import java.net.*;
 public class Examples {
     public static void main(String[] args) throws UnknownHostException {
 
-//        getUrlConnection();
+        getUrlConnection();
 
 
 //        getMyIPadress();
@@ -19,7 +19,7 @@ public class Examples {
 
     private static void getUrlConnection() {
         String urlName = "https://www.oracle.com";
-        int timeout = 10_000_000;
+        int timeout = 10_000;
         URL url;
         try {
             url = new URL(urlName);
@@ -31,7 +31,7 @@ public class Examples {
             BufferedInputStream bin = new BufferedInputStream(is);
             byte[] buffer = new byte[bin.available()];
             // считаем файл в буфер
-            bin.read(buffer, 0, bin.available());
+            bin.read(buffer, 0, buffer.length);
 
             System.out.println(" data:");
             for (int i = 0; i < buffer.length; i++) {
@@ -48,10 +48,11 @@ public class Examples {
     }
 
     private static void createIP() {
-        byte ip[] = {(byte) 81, (byte) 25, (byte) 231, (byte) 118};
+        byte ip[] = {(byte) 33, (byte) 235, (byte) 255, (byte) 43};
         try {
             InetAddress addr = InetAddress.getByAddress("[omr.gov.ua]", ip);
-            System.out.println(addr.getHostName() + "-> cоединение:" + addr.isReachable(2000));
+            System.out.println(addr.getHostName() + "-> cоединение:"
+                    + addr.isReachable(2000));
         } catch (UnknownHostException e) {
             System.err.println("адрес недоступен " + e);
         } catch (IOException e) {

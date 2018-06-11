@@ -9,7 +9,7 @@ public class SimpleClientSocket {
     public static void main(String[] args) {
 
         try {
-            Socket socket = new Socket("localhost", 8030);
+            Socket socket = new Socket("127.0.0.1", 8030);
 
             try (InputStream in = socket.getInputStream();
                  OutputStream out = socket.getOutputStream()) {
